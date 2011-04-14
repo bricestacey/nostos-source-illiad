@@ -10,6 +10,7 @@ module Source
         Source::Illiad.configure do |config|
           config.number_of_days_to_poll = app.config.source_illiad[:number_of_days_to_poll]
           config.db = app.config.source_illiad[:db]
+          config.webcirc = app.config.source_illiad[:webcirc]
         end
       end
 
