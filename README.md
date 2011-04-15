@@ -24,6 +24,12 @@ In `config/application.rb` add the following options:
       :password => '',
       :database => ''
     }
+    config.source_illiad.webcirc = {
+      :url => 'http://HOSTNAME/illiad/WebCirc/Logon.aspx', 
+      :username => '',
+      :password => ''
+    }
+
 
 `dataserver` is the name for your server as defined in freetds.conf. `number_of_days_to_poll` is how many days you want to poll into the past. This number must be greater than how often you run Nostos in order to stay synchronized. I recommend polling 2-3 days in the past at most.
 
