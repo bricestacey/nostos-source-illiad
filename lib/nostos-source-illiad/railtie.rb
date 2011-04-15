@@ -1,5 +1,4 @@
 require 'rails'
-require 'activerecord-illiad-adapter'
 
 module Source
   module Illiad
@@ -15,7 +14,7 @@ module Source
       end
 
       initializer "source_illiad.establish_connection", :after => "source_illiad.configure" do |app|
-        IlliadAR::Base.establish_connection(Source::Illiad.config.db)
+        IlliadAR::AR::Base.establish_connection(Source::Illiad.config.db)
       end
     end
   end

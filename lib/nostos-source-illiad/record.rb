@@ -15,7 +15,7 @@ module Source
 
       def charged?(force = false)
         if force then
-          t = IlliadAR::Transaction.find(@id)
+          t = IlliadAR::AR::Transaction.find(@id)
           @due_date = t.due_date
           @charged = t.charged?
         end

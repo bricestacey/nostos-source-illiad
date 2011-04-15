@@ -3,8 +3,8 @@
 require 'nostos-source-illiad/railtie.rb'
 require 'nostos-source-illiad/config.rb'
 require 'nostos-source-illiad/record.rb'
+require 'illiad'
 require 'illiad/transaction.rb'
-require 'activerecord-illiad-adapter'
 
 
 # activerecord-illiad-adapter is named Illiad, so we must rename it to avoid 
@@ -22,7 +22,7 @@ module Source
     end
 
     def self.find(id)
-      IlliadAR::Transaction.find(id).to_record
+      IlliadAR::AR::Transaction.find(id).to_record
     end
 
     # Poll Illiad for new transactions to process. The strategy is to find
@@ -50,7 +50,7 @@ module Source
           Transactions.RequestType = 'Loan'
       SQL
 
-      IlliadAR::Transaction.find_by_sql(sql).map {|t| t.to_record}
+      IlliadAR::AR::Transaction.find_by_sql(sql).map {|t| t.to_record}
     end
   end
 end
