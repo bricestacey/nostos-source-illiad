@@ -7,10 +7,6 @@ require 'illiad'
 require 'illiad/transaction.rb'
 
 
-# activerecord-illiad-adapter is named Illiad, so we must rename it to avoid 
-# naming conflict.
-IlliadAR = Illiad
-
 module Source
   module Illiad 
     def self.config
@@ -22,7 +18,7 @@ module Source
     end
 
     def self.find(id)
-      IlliadAR::AR::Transaction.find(id).to_record
+      ::Illiad::AR::Transaction.find(id).to_record
     end
 
     # Poll Illiad for new transactions to process. The strategy is to find
@@ -50,7 +46,7 @@ module Source
           Transactions.RequestType = 'Loan'
       SQL
 
-      IlliadAR::AR::Transaction.find_by_sql(sql).map {|t| t.to_record}
+      ::Illiad::AR::Transaction.find_by_sql(sql).map {|t| t.to_record}
     end
   end
 end

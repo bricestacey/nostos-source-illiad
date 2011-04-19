@@ -14,7 +14,7 @@ module Source
       end
 
       initializer "source_illiad.establish_connection", :after => "source_illiad.configure" do |app|
-        IlliadAR::AR::Base.establish_connection(Source::Illiad.config.db)
+        ::Illiad::AR::Base.establish_connection(Source::Illiad.config.db)
       end
     end
   end
