@@ -5,6 +5,7 @@ require 'nostos-source-illiad/config.rb'
 require 'nostos-source-illiad/record.rb'
 require 'illiad'
 require 'illiad/transaction.rb'
+require 'nostos-source-illiad/generators/source_illiad_generator.rb'
 
 
 module Source
