@@ -28,12 +28,12 @@ module Source
         agent = Mechanize.new# { |a| a.log = Logger.new(STDERR) }
 
         # Load Illiad Web Circulation
-        page = agent.get(Source::Illiad.config.webcirc[:url])
+        page = agent.get(Source::Illiad.config.webcirc['url'])
 
         # Select, fill in, and submit the logon form.
         page = page.form('formLogon') do |f|
-          f.TextBoxUsername = Source::Illiad.config.webcirc[:username]
-          f.TextBoxPassword = Source::Illiad.config.webcirc[:password]
+          f.TextBoxUsername = Source::Illiad.config.webcirc['username']
+          f.TextBoxPassword = Source::Illiad.config.webcirc['password']
         end.click_button
 
         # Mechanize::ResponseCodeError - 500 => Net::HTTPInternalServerError:
