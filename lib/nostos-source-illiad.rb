@@ -1,6 +1,6 @@
 # Source::Illiad, Nostos Source Driver for Illiad
 
-require 'nostos-source-illiad/railtie.rb'
+require 'nostos-source-illiad/railtie.rb' if defined?(Rails)
 require 'nostos-source-illiad/config.rb'
 require 'nostos-source-illiad/record.rb'
 require 'illiad'

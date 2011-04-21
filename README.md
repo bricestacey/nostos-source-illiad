@@ -12,24 +12,22 @@ Add the following to your Gemfile and run `bundle install`
 
 ## Configuration
 
-You can interactively configure the Illiad source driver by running `rails generator source_illiad:install`. This will prompt you for the necessariy values.
+You can interactively configure the Illiad source driver by running `rails generate source_illiad:install`. This will prompt you for the necessariy values.
 
-You can manually configure the Illiad source drive in `config/application.rb`:
+You can manually configure the Illiad source drive in `config/source_illiad.rb`:
 
-    config.source_illiad.number_of_days_to_poll = 14
+    number_of_days_to_poll: 14
 
-    config.source_illiad.db = {
-      :adapter => 'sqlserver',
-      :dataserver => '',
-      :username => '',
-      :password => '',
-    }
-    config.source_illiad.webcirc = {
-      :url => 'http://HOSTNAME/illiad/WebCirc/Logon.aspx',
-      :username => '',
-      :password => ''
-    }
+    db:
+      adapter:    'sqlserver'
+      dataserver: ''
+      username:   ''
+      password:   ''
 
+    webcirc:
+      url:      'http://HOSTNAME/illiad/WebCirc/Logon.aspx'
+      username: ''
+      password: ''
 
 `dataserver` is the name for your server as defined in freetds.conf. `number_of_days_to_poll` is how many days you want to poll into the past. This number must be greater than how often you run Nostos in order to stay synchronized. I recommend polling 2-3 days in the past at most. Your WebCirc URL may be different, though the above should hold true for most OCLC hosted servers.
 
